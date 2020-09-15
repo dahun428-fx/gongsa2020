@@ -81,11 +81,13 @@
 													<c:if test="${consert.title }"></c:if>
 												</div>
 												<div class="col-9 text-center">
-												 <c:forEach var="genre" items="${consert.genres }"> 
-												 <a	class="btn btn-link" href="/performance/list.do?category=${consert.category }&genre=${genre }">
-												 	#${genre }
-												 </a>
-												</c:forEach>
+												 	<div class="d-flex justify-content-start">
+														 <c:forEach var="genre" items="${consert.genres }"> 
+															 <a	style="padding: 0; margin: 0" class="btn btn-link text-left" href="/performance/list.do?category=${consert.category }&genre=${genre }">
+															 	#${genre }
+															 </a>
+														</c:forEach>
+												 	</div>
 												</div>
 												<div class="col-3 text-right">
 													<a href="/performance/totalList.do?title=${rutil:replaceTag(consert.title)}" class="btn">

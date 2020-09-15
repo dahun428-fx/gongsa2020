@@ -57,20 +57,15 @@
                     <div class="card mt-3" id="mypage-card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-3">
-                                    <img class="rounded float-left" id="user-image"
-                                         style="width: 200px; height: 200px;"
-                                         src="/resources/sample-images/movie_image.jpg" alt="...">
-                                </div>
-                                <div class="col-6">
+                                <div class="col-12 mt-2 mb-2">
                                     <div class="row">
-                                        <div class="col-12">
+                                        <div class="col-4">
                                             <h1><span id="nickname">user nickname</span>님</h1>
                                         </div>
-                                        <div class="col-12">
+                                        <div class="col-4">
                                             <h4>가입일 : <span id="reg-date"></span></h4>
                                         </div>
-                                        <div class="col-12">
+                                        <div class="col-4">
                                             <h4>회원등급 : <span id="grade"></span></h4>
                                         </div>
                                     </div>

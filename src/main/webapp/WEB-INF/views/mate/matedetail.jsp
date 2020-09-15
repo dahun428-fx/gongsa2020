@@ -50,10 +50,10 @@
 							<ul>
 								<c:choose>
 									<c:when test="${not empty mate }">
-										<c:forEach items="${mate }" var="user">
+										<c:forEach items="${mate }" var="user" varStatus="status">
 									<li>
 										<!-- user image --> <img
-										src="/resources/sample-images/sample-consert1.jpg" alt="">
+										src="/resources/sample-images/user_icon.png" alt="">
 										<div>
 											<!-- user id -->
 											<h2>${user.nickname }</h2>

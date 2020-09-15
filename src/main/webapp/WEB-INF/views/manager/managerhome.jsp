@@ -148,7 +148,7 @@
         <div class="card-footer small text-muted" id="sales-year"></div>
       </div>
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-12">
           <!-- Example Bar Chart Card-->
           <div class="card mb-3">
             <div class="card-header">
@@ -156,7 +156,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-8 my-auto">
-                	<div class="card">
+                	<div class="">
                 	<c:if test="${not empty topReserves }">
                 	
                 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -177,7 +177,7 @@
                 					<c:set var="path" value="/resources/sample-images/${reserve.performance.imagePath }"/>
                 				</c:otherwise>
                 			</c:choose>
-                				<img class="img-thumbnail" src="${path }">
+                				<img class="img-thumbnail" style="width: 500px; height: 700px;" src="${path }">
 
                 			</div>
                 			<c:set var="index" value="${index + 1 }"/>
@@ -229,27 +229,6 @@
         <div class="col-lg-4">
           <!-- Example Pie Chart Card-->
           <!-- Example Notifications Card-->
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fa fa-bell-o"></i>고객 좋아요 <i class="far fa-thumbs-up"></i> <span>랭킹</span></div>
-            
-            <div class="list-group list-group-flush small">
-           <c:if test="${not empty userList }">
-           <c:forEach items="${userList }" var="user">
-              <a class="list-group-item list-group-item-action" href="#">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-                  <div class="media-body">
-                    <strong>${user.id }</strong>
-                    <div class="text-muted smaller"><span class="badge badge-primary">${user.getlike }</span></div>
-                  </div>
-                </div>
-              </a>
-             
-            </c:forEach>
-            </c:if>
-            </div>
-            </div>
           </div>
         </div>
       </div>
