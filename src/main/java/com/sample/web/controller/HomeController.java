@@ -65,5 +65,43 @@ public class HomeController {
 		
 		return "home";
 	}
+	@GetMapping("/")
+	public String homeGongsa(Model model) {
+		
+		String concert = "콘서트";
+		String musical = "뮤지컬";
+		String theater = "연극";
+		
+		List<PerformanceDetailDto> conserts =  performanceService.getPerformanceByCategoryLimit(concert);
+		List<PerformanceDetailDto> musicals =  performanceService.getPerformanceByCategoryLimit(musical);
+		List<PerformanceDetailDto> theaters =  performanceService.getPerformanceByCategoryLimit(theater);		
+	
+		List<Object> consertSeatList = new ArrayList<>();
+		List<Object> musicalsSeatList = new ArrayList<>();
+		List<Object> theatersSeatList = new ArrayList<>();
+		for(PerformanceDetailDto dto : conserts) {
+			int performanceId = dto.getPerformanceMainId();
+			consertSeatList.add(mateService.getMateSeatsAllCnt(performanceId));
+		}
+		for(PerformanceDetailDto dto : musicals) {
+			int performanceId = dto.getPerformanceMainId();
+			musicalsSeatList.add(mateService.getMateSeatsAllCnt(performanceId));
+		}
+		for(PerformanceDetailDto dto : theaters) {
+			int performanceId = dto.getPerformanceMainId();
+			theatersSeatList.add(mateService.getMateSeatsAllCnt(performanceId));
+		}
+
+		model.addAttribute("consertSeatList", consertSeatList);
+		model.addAttribute("musicalsSeatList", musicalsSeatList);
+		model.addAttribute("theatersSeatList", theatersSeatList);
+		
+		model.addAttribute("conserts", conserts);
+		model.addAttribute("musicals", musicals);
+		model.addAttribute("theaters", theaters);
+	
+		
+		return "redirect:/home.do";
+	}
 	
 }
