@@ -116,13 +116,8 @@ const openDetailModal = function(){
 			var manReserveCount = data.manReserveCount;
 			var womanReserveCount = data.womanReserveCount;
 
-			console.log("manReserveCount: "+ manReserveCount);
-			console.log("womanReserveCount: "+ womanReserveCount);
-
-			console.log("디테일을 눌렀다.");
 
 			var modalImagePath = performance.imagePath;
-			console.log("ImagePath 시작: " + modalImagePath.substring(0,4));
 			if (modalImagePath.substring(0,4) != 'http') {
 				modalImagePath="/resources/sample-images/"+performance.imagePath;
 			}
@@ -143,7 +138,6 @@ const openDetailModal = function(){
 
 			$("#modalGenre").text(performanceGenres);
 
-			console.log(performance.runningTime);
 			$("#modalRunningTime").text(performance.runningTime);
 
 			var period = performance.startDate + " ~ " +  performance.endDate;
@@ -157,7 +151,6 @@ const openDetailModal = function(){
 				+ numberWithComma(performance.seatPrices[idx].price) + "원 ";
 			}
 
-			console.log(seatPrices);
 
 			$("#modalSeatInfo").text(seatPrices);
 
@@ -175,7 +168,7 @@ const openDetailModal = function(){
 			$("#modalDetailHallName p:eq(0)").text(performance.hallName);
 			$("#modalDetailHallName p:eq(1)").text("("+performance.hallAddress+")");
 			$("#modalDetailPeriod").text(period);
-			//$("#modalDetailTime").text(performance.expla);
+			// $("#modalDetailTime").text(performance.expla);
 			$("#modalDetailRunningTime").text(performance.runningTime);
 			$("#modalDetailSeatInfo").text(seatPrices);
 
@@ -205,8 +198,6 @@ const openDetailModal = function(){
 				$("#clickLike").find("i").removeClass("fas").addClass("far").css("color", "black");
 			}
 
-			console.log("성공함");
-			console.log(performance);
 
 			var id = document.getElementById('map');
 			kakaoMap(id, hallInfo);
@@ -218,7 +209,7 @@ const openDetailModal = function(){
 			var genderColors=['skyblue', '#e23b3b'];
 
 			var donutOptions= {
-				cutoutPercentage: 30, //도넛두께 : 값이 클수록 얇아짐
+				cutoutPercentage: 30, // 도넛두께 : 값이 클수록 얇아짐
 				legend: {
 							position:'bottom',
 							padding:5,
@@ -243,7 +234,6 @@ const openDetailModal = function(){
 			var $defaultChart = $("#defaultChart");
 
 			if ((manReserveCount == 0) && (womanReserveCount == 0)) {
-				console.log("아직 아무도 구매를 하지 않음");
 
 				var defaultImage = "<img class='mt-5' src='/resources/sample-images/notPrepared.png' width='140px'/>";
 				defaultImage += "<p class='mt-4 mb-4 font-weight-bold'>아직 성별 예매정보가 없습니다.</p>";
@@ -275,17 +265,18 @@ const kakaoMap = function (id, hallInfo) {
 	// 카카오맵 api script 부분 by LMS (2020.08.26)
 	var mapContainer = id, // 지도를 표시할 div
 	mapOption = {
-	    center: new kakao.maps.LatLng(hallInfo.gpsX, hallInfo.gpsY), // 지도의 중심좌표
+	    center: new kakao.maps.LatLng(hallInfo.gpsX, hallInfo.gpsY), // 지도의
+																		// 중심좌표
 	    level: 3 // 지도의 확대 레벨
 	};
 
-	//지도를 생성합니다
+	// 지도를 생성합니다
 	var map = new kakao.maps.Map(mapContainer, mapOption);
 
-	//주소-좌표 변환 객체를 생성합니다
+	// 주소-좌표 변환 객체를 생성합니다
 	var geocoder = new kakao.maps.services.Geocoder();
 
-	//주소로 좌표를 검색합니다
+	// 주소로 좌표를 검색합니다
 	geocoder.addressSearch(hallInfo.address, function(result, status) {
 
 	// 정상적으로 검색이 완료됐으면

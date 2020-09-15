@@ -1,6 +1,8 @@
 let isLast = false
+
 $(function () {
 	activateMenu()
+	// 무한스크롤
     $(window).scroll(() => {
         const scrollTop = $(window).scrollTop()
         const windowHeight = $(window).height()
@@ -10,13 +12,15 @@ $(function () {
             generateList()
         }
     })
+    // 리스트 생성
     generateList()
+    
 
     $(document).on('click', '.reserve-list', function (event) {
         const reserveId = $(this).data('reserveId')
         const url = `/mypage/myperformanceDetail.do?reserveId=${reserveId}`
         const sendvalue = {'reserveId': reserveId}
-
+        
         $(location).attr('href', url)
 
     })
