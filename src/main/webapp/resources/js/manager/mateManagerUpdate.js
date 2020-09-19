@@ -99,7 +99,7 @@ $(function(){
 	//페이지 로드시 나타남
 	var pId = $('#performanceId').val()
 	$.ajax({
-		url:'/manager/mateManagerUpdateJson.do',
+		url:'/managerMate/mateManagerUpdateJson.do',
 		Type:'POST',
 		contentType:"application/json",
 		data:{
@@ -365,7 +365,7 @@ $(function(){
 		var searchVal = $('#performance-search').val();
 		
 		$.ajax({
-			url:'/manager/mateManagerJson.do',
+			url:'/managerMate/mateManagerJson.do',
 			Type:'POST',
 			contentType:"application/json",
 			data:{
@@ -468,7 +468,7 @@ $(function(){
 	var $tr = $('#performance-list-content tbody tr');
 	$('#performance-list-modal-btn').click(function(){
 		$.ajax({
-			url:'/manager/mateManagerJson.do',
+			url:'/managerMate/mateManagerJson.do',
 			Type:'POST',
 			contentType:"application/json",
 			data:{
@@ -635,7 +635,7 @@ $(function(){
 	
 			$.ajax({
 				type:"POST",
-				url:"/manager/countMate.do",
+				url:"/managerMate/countMate.do",
 				dataType:"json",
 				contentType:'application/json',
 				data:JSON.stringify(data),
@@ -755,12 +755,12 @@ $(function(){
 
 		$.ajax({
 			type:"POST",
-			url:"/manager/updateMate.do",
+			url:"/managerMate/updateMate.do",
 			contentType:'application/json',
 			data:JSON.stringify(data),
 			success:function(result){
 				alert('수정이 완료되었습니다.');
-				location.href = '/manager/mateList.do';
+				location.href = '/managerMate/mateList.do';
 			},
 			beforeSend:function(){
 				$('#loading').show();
@@ -791,7 +791,7 @@ $(function(){
 			var catId = Number($('#next-cat-id').val()) + 1;
 			
 			$.ajax({
-				url:"/manager/addCat.do",
+				url:"/managerMate/addCat.do",
 				type:"POST",
 				data:{
 					"category":value,

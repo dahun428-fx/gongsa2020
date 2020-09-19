@@ -27,7 +27,7 @@ import com.sample.web.view.PerformanceMain;
 import com.sample.web.view.Reserve;
 
 @Controller
-@RequestMapping("/manager")
+@RequestMapping("/managerMate")
 public class MateManageController {
 
 	@Autowired

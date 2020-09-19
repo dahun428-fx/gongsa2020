@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -51,6 +51,19 @@ public class SigninController {
 	@Autowired
 	private UserService userService;
 
+	@Value("#{gongsa['sms.id']}")
+	private String smsId;
+	
+	@Value("#{gongsa['sms.pw']}")
+	private String smsPw;
+	
+	@Value("#{gongsa['sms.email']}")
+	private String smsEmail;
+	
+	@Value("#{gongsa['server.url']}")
+	private String serverUrl;
+	
+	
 	@GetMapping("/signin.do")
 	public String signinForm(Model model) {
 		LoginForm loginForm = new LoginForm();
@@ -96,12 +109,6 @@ public class SigninController {
 	@RequestMapping("/sendMail.do")
 	public String mailSender(@ModelAttribute("findUserInfo") @Valid FindUserInfo findUserInfo, BindingResult errors, ModelMap mo) throws AddressException, MessagingException { 
 
-		System.out.println("email : "+findUserInfo.getEmail());
-//		smsMailGonsa mail = new smsMailGonsa();
-//		String smsId = mail.getId();
-//		String smsPw = mail.getPw();
-//		String smsEmail = mail.getEmail();
-//		System.out.println(smsId);
 		// 네이버일 경우 smtp.naver.com 을 입력합니다. 
 		// Google일 경우 smtp.gmail.com 을 입력합니다. 
 		if (errors.hasErrors()) {
@@ -109,17 +116,14 @@ public class SigninController {
 		}
 
 		String host = "smtp.naver.com"; 
-		final String username = "gongonsa"; //네이버 아이디를 입력해주세요. @nave.com은 입력하지 마시구요. 
-		final String password = "Zxcv1@34"; //네이버 이메일 비밀번호를 입력해주세요.
+		final String username = smsId; //네이버 아이디를 입력해주세요. @nave.com은 입력하지 마시구요. 
+		final String password = smsPw; //네이버 이메일 비밀번호를 입력해주세요.
 		
 		int port=465; //포트번호 
 		
 		User user = userService.getUserByEmail(findUserInfo.getEmail());
-		System.out.println(user);
 		if (user == null) {
-
 			return "redirect:/findId.do?error=fail";
-
 		}	
 		// 메일 내용 
 		// String recipient = "aldus207"; //받는 사람의 메일주소를 입력해주세요. 
@@ -147,10 +151,8 @@ public class SigninController {
 		session.setDebug(true); //for debug 
 
 		Message mimeMessage = new MimeMessage(session); //MimeMessage 생성 
-		mimeMessage.setFrom(new InternetAddress("gongonsa@naver.com")); //발신자 셋팅 , 보내는 사람의 이메일주소를 한번 더 입력합니다. 이때는 이메일 풀 주소를 다 작성해주세요. 
+		mimeMessage.setFrom(new InternetAddress(smsEmail)); //발신자 셋팅 , 보내는 사람의 이메일주소를 한번 더 입력합니다. 이때는 이메일 풀 주소를 다 작성해주세요. 
 		if (findUserInfo.getEmail().isEmpty()) {
-			System.out.println("안돼!");
-			
 			return "redirect:/findId.do";
 		}
 		
@@ -159,7 +161,6 @@ public class SigninController {
 		mimeMessage.setSubject(subject); //제목셋팅 
 		mimeMessage.setText(body); //내용셋팅 
 		Transport.send(mimeMessage); //javax.mail.Transport.send() 이용 
-		System.out.println("실행");
 		
 		return "user/mailCompl";
 	}
@@ -170,11 +171,6 @@ public class SigninController {
 	public String mailSenderPwd(@ModelAttribute("findUserInfo") @Valid FindUserInfo findUserInfo, BindingResult errors, ModelMap mo) throws AddressException, MessagingException { 
 		
 		System.out.println("email : "+findUserInfo.getEmail());
-//		smsMailGonsa mail = new smsMailGonsa();
-//		String smsId = mail.getId();
-//		String smsPw = mail.getPw();
-//		String smsEmail = mail.getEmail();
-//		System.out.println(smsId);
 		// 네이버일 경우 smtp.naver.com 을 입력합니다. 
 		// Google일 경우 smtp.gmail.com 을 입력합니다. 
 		if (errors.hasErrors()) {
@@ -182,20 +178,18 @@ public class SigninController {
 		}
 		
 		String host = "smtp.naver.com"; 
-		final String username = "gongonsa"; //네이버 아이디를 입력해주세요. @nave.com은 입력하지 마시구요. 
-		final String password = "Zxcv1@34"; //네이버 이메일 비밀번호를 입력해주세요.
+		final String username = smsId; //네이버 아이디를 입력해주세요. @nave.com은 입력하지 마시구요. 
+		final String password = smsPw; //네이버 이메일 비밀번호를 입력해주세요.
 		
 		int port=465; //포트번호 
 		
 		User user = userService.getUserByEmail(findUserInfo.getEmail());
-		System.out.println(user);
 		if (user == null) {
 			
 			return "redirect:/findPwd.do?error=fail";
 			
 		}	
 		// 메일 내용 
-		// String recipient = "aldus207"; //받는 사람의 메일주소를 입력해주세요. 
 		String subject = "공공연한 사이입니다."; //메일 제목 입력해주세요. 
 		String body = "안녕하세요 공공연한 사이입니다." + "\n회원님의 비밀번호는" + user.getPassword() + "입니다."; //메일 내용 입력해주세요. 
 		
@@ -220,9 +214,8 @@ public class SigninController {
 		session.setDebug(true); //for debug 
 		
 		Message mimeMessage = new MimeMessage(session); //MimeMessage 생성 
-		mimeMessage.setFrom(new InternetAddress("gongonsa@naver.com")); //발신자 셋팅 , 보내는 사람의 이메일주소를 한번 더 입력합니다. 이때는 이메일 풀 주소를 다 작성해주세요. 
+		mimeMessage.setFrom(new InternetAddress(smsEmail)); //발신자 셋팅 , 보내는 사람의 이메일주소를 한번 더 입력합니다. 이때는 이메일 풀 주소를 다 작성해주세요. 
 		if (findUserInfo.getEmail().isEmpty()) {
-			System.out.println("안돼!");
 			
 			return "redirect:/findPwd.do";
 		}
@@ -232,7 +225,6 @@ public class SigninController {
 		mimeMessage.setSubject(subject); //제목셋팅 
 		mimeMessage.setText(body); //내용셋팅 
 		Transport.send(mimeMessage); //javax.mail.Transport.send() 이용 
-		System.out.println("실행");
 		
 		return "user/mailCompl";
 	}
@@ -242,11 +234,6 @@ public class SigninController {
 	public String mailSenderTerm(@ModelAttribute("findUserInfo") @Valid FindUserInfo findUserInfo, BindingResult errors, ModelMap mo) throws AddressException, MessagingException { 
 		
 		System.out.println("email : "+findUserInfo.getEmail());
-//		smsMailGonsa mail = new smsMailGonsa();
-//		String smsId = mail.getId();
-//		String smsPw = mail.getPw();
-//		String smsEmail = mail.getEmail();
-//		System.out.println(smsId);
 		// 네이버일 경우 smtp.naver.com 을 입력합니다. 
 		// Google일 경우 smtp.gmail.com 을 입력합니다. 
 		User user = userService.getUserByEmail(findUserInfo.getEmail());
@@ -259,15 +246,15 @@ public class SigninController {
 		}
 		
 		String host = "smtp.naver.com"; 
-		final String username = "gongonsa"; //네이버 아이디를 입력해주세요. @nave.com은 입력하지 마시구요. 
-		final String password = "Zxcv1@34"; //네이버 이메일 비밀번호를 입력해주세요.
+		final String username = smsId; //네이버 아이디를 입력해주세요. @nave.com은 입력하지 마시구요. 
+		final String password = smsPw; //네이버 이메일 비밀번호를 입력해주세요.
 		
 		int port=465; //포트번호 
 		// 메일 내용 
 		// String recipient = "aldus207"; //받는 사람의 메일주소를 입력해주세요. 
 		String subject = "공공연한 사이입니다."; //메일 제목 입력해주세요. 
 		String customerEamil = findUserInfo.getEmail();
-		String body = "이 <a href='http://localhost:8080/signup.do?email="+customerEamil+"'>링크</a>를 타고가서 회원가입해주시기 바랍니다."; //메일 내용 입력해주세요. 
+		String body = "이 <a href='"+serverUrl+"/signup.do?email="+customerEamil+"'>링크</a>를 타고가서 회원가입해주시기 바랍니다."; //메일 내용 입력해주세요. 
 		
 		Properties props = System.getProperties(); // 정보를 담기 위한 객체 생성 
 		
@@ -290,7 +277,7 @@ public class SigninController {
 		session.setDebug(true); //for debug 
 		
 		Message mimeMessage = new MimeMessage(session); //MimeMessage 생성 
-		mimeMessage.setFrom(new InternetAddress("gongonsa@naver.com")); //발신자 셋팅 , 보내는 사람의 이메일주소를 한번 더 입력합니다. 이때는 이메일 풀 주소를 다 작성해주세요. 
+		mimeMessage.setFrom(new InternetAddress(smsEmail)); //발신자 셋팅 , 보내는 사람의 이메일주소를 한번 더 입력합니다. 이때는 이메일 풀 주소를 다 작성해주세요. 
 		if (findUserInfo.getEmail().isEmpty()) {
 			System.out.println("안돼!");
 			
@@ -354,9 +341,7 @@ public class SigninController {
 	@ResponseBody
 	public UserInfoDto adminProfileDetail(@RequestParam("id") String id ) {
 		
-		System.out.println(id);
 		UserInfoDto userDetail = userService.getUserInfoDetail(id);
-		//model.addAttribute("user", userDetail);
 		
 		return userDetail;
 	}

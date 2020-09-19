@@ -35,8 +35,8 @@
 					</a>
 						<div class="sidebar-submenu">
 							<ul>
-								<li><a href="/manager/mateManager.do">메이트 등록</a></li>
-								<li><a href="/manager/mateList.do">메이트 리스트</a></li>
+								<li><a href="/managerMate/mateManager.do">메이트 등록</a></li>
+								<li><a href="/managerMate/mateList.do">메이트 리스트</a></li>
 								
 							</ul>
 						</div></li>

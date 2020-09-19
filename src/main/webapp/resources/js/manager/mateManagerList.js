@@ -3,7 +3,7 @@ $(function(){
 	
 	$.ajax({
 		type:"POST",
-		url:"/manager/mateManagementJson.do",
+		url:"/managerMate/mateManagementJson.do",
 		success:function(result){
 			printPage(result);
 		}
@@ -16,7 +16,7 @@ $(function(){
 		
 		var pageNo = $(this).data('pageno');
 		$.ajax({
-			url:'/manager/mateManagementJson.do',
+			url:'/managerMate/mateManagementJson.do',
 			type:'POST',
 			data:{
 				"pageNo":pageNo
@@ -31,7 +31,7 @@ $(function(){
 	$('tfoot').on('click','.beforePage',function(){
 		var pageNo = $(this).data('pageno');
 		$.ajax({
-			url:'/manager/mateManagementJson.do',
+			url:'/managerMate/mateManagementJson.do',
 			type:'POST',
 			data:{
 				"pageNo":pageNo
@@ -48,7 +48,7 @@ $(function(){
 	$('tfoot').on('click','.afterPage',function(){
 		var pageNo = $(this).data('pageno');
 		$.ajax({
-			url:'/manager/mateManagementJson.do',
+			url:'/managerMate/mateManagementJson.do',
 			type:'POST',
 			data:{
 				"pageNo":pageNo
@@ -69,7 +69,7 @@ $(function(){
 		
 		$.ajax({
 			type:"POST",
-			url:"/manager/mateManagementDetail.do",
+			url:"/managerMate/mateManagementDetail.do",
 			data:{
 				"performanceId":pId
 			},
@@ -192,7 +192,7 @@ $(function(){
 	//수정버튼 클릭
 	$('#matelist-table').on('click','#matelist-update-btn',function(){
 		var performanceId = $(this).data('performanceid');
-		location.href = '/manager/mateManagerUpdate.do?performanceId='+performanceId;
+		location.href = '/managerMate/mateManagerUpdate.do?performanceId='+performanceId;
 	})
 	//삭제버튼 클릭
 	$('#matelist-table').on('click','#matelist-delete-btn',function(){
@@ -202,7 +202,7 @@ $(function(){
 			return;
 		}
 		$.ajax({
-			url:"/manager/deleteMate.do",
+			url:"/managerMate/deleteMate.do",
 			type:"POST",
 			data:{
 				"performanceId":performanceId

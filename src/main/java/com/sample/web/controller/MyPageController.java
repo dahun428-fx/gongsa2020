@@ -71,8 +71,7 @@ public class MyPageController {
     @PostMapping("/myperformance.do")
     @ResponseBody
     public Map<String, Object> myPerformance(@RequestBody User user) {
-        System.out.println("request to mypage controller href :'POST' /myperformance.do");
-
+     
         List<Reserve> reserves = reserveService.getReservesByUserId(user.getPoint(), user.getId());
         Map<String, Object> map = new HashMap<>();
 
@@ -87,14 +86,12 @@ public class MyPageController {
     @RequestMapping("/myperformanceDetail.do")
     public String myPerformanceDetail(@RequestParam("reserveId") String reserveId, HttpSession session, Model model) {
         int id = NumberUtil.stringToInt(reserveId);
-        System.out.println(id);
         // user
         User user = (User) session.getAttribute("LOGIN_USER");
         user = userService.getUserDetail(user.getId());
         model.addAttribute("user", user);
         // reserve
         Reserve reserve = reserveService.getReserveDetail(id);
-        System.out.println(reserve == null);
         model.addAttribute("reserve", reserve);
         model.addAttribute("performance", reserve.getPerformance());
         model.addAttribute("hall", reserve.getPerformance().getSchedule().get(0).getHallinfo());
@@ -232,7 +229,6 @@ public class MyPageController {
 
         map.put("coupons", user.getCoupons());
         map.put("totalRows", userService.getAllUsersCouponCount(userId));
-        System.out.println(map.get("totalRows"));
         return map;
     }
 
@@ -250,9 +246,7 @@ public class MyPageController {
         String userId = user.getId();
         user = userService.getUserDetail(userId);
         param.put("userId", userId);
-        System.out.println(param.toString());
         user.setUserPointHistory(userService.getUserPointHistoryForPagination(param));
-        System.out.println(user.getUserPointHistory().toString());
         map.put("pointHistory", user.getUserPointHistory());
         map.put("currPoint", user.getPoint());
         map.put("totalRows", userService.getAllPointHistoryCount(userId));

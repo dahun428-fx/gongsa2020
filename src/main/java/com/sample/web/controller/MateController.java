@@ -369,11 +369,7 @@ public class MateController {
 	public void mateOut(@RequestParam("performanceMainId") int performanceId,
 							@RequestParam("mateId") int mateId,
 								@RequestParam("userId") String userId) {
-		
-		System.out.println("performanceId : " + performanceId);
-		System.out.println("mateId : " + mateId);
-		System.out.println("userId : " + userId);
-		
+	
 		//해당 유저가 mate_memebers 인지 검사한다.
 		boolean existUser = mateService.getMateUserByMateIdAndUserId(userId, mateId);
 		if(!existUser) {

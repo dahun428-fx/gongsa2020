@@ -114,7 +114,18 @@ $(function() {
 		if (loginType == 'web') {
 			location.href = "/signout.do";
 		} else if (loginType == "sns") {
-			location.href = "https://kauth.kakao.com/oauth/logout?client_id=8c912903836a6643f0a91b7b98862cf7&logout_redirect_uri=http://localhost/sns/logout.do"
+			
+			$.ajax({
+				type:"POST",
+				url:"/sns/kakao.do",
+				success:function(result){
+					var restkey = result.kakaoRestKey;
+					var url = result.serverUrl;
+					location.href= "https://kauth.kakao.com/oauth/logout?client_id="+restkey+"&logout_redirect_uri="+url+"/sns/logout.do";
+				}
+				
+			})
+			
 		}
 		
 		

@@ -42,14 +42,6 @@ public class SignupController {
 
 	}
 
-//	@GetMapping("/snsSignup.do")
-//	public String form2(Model model) {
-//		UserSignupForm userSignupForm = new UserSignupForm();
-//		model.addAttribute("userSignupForm", userSignupForm);
-//		return "user/snsSignup";
-//		
-//	}
-
 	// 회원가입 폼 입력후 완료 페이지
 	@PostMapping("/signup.do")
 	public String signup(@ModelAttribute("userSignupForm") @Valid UserSignupForm userForm, BindingResult errors) {
@@ -212,14 +204,12 @@ public class SignupController {
 
 		}
 
-		System.out.println("유효성 체크결과 에러가 발견되었는가? " + errors.hasErrors());
 		if (errors.hasErrors()) {
 			return "user/userUpdate"; // 입력화면으로 내부이동하기
 		}
 
 		User user = new User();
 		BeanUtils.copyProperties(userUpdateForm, user);
-		System.out.println(user);
 
 		// 회원 정보 수정 처리
 		userService.fixUser(user);

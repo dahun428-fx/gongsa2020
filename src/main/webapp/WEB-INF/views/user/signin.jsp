@@ -107,8 +107,16 @@
 <script type="text/javascript">
 
 $("#kakao-login-btn").click(function() {
-	location.href = "https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=8c912903836a6643f0a91b7b98862cf7&redirect_uri=http://localhost/sns/kakao.do"
-
+	$.ajax({
+		type:"POST",
+		url:"/sns/kakao.do",
+		success:function(result){
+			var restkey = result.kakaoRestKey;
+			var url = result.serverUrl;
+			location.href= "https://kauth.kakao.com/oauth/authorize?response_type=code&client_id="+restkey+"&redirect_uri="+url+"/sns/kakao.do";
+		}
+			
+	})
 
 });
 

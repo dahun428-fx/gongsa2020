@@ -176,7 +176,7 @@ $(function(){
 	
 	//페이지 로드시 나타남
 	$.ajax({
-		url:'/manager/mateManagerJson.do',
+		url:'/managerMate/mateManagerJson.do',
 		Type:'POST',
 		contentType:"application/json",
 		data:{
@@ -222,7 +222,7 @@ $(function(){
 		var searchVal = $('#performance-search').val();
 		
 		$.ajax({
-			url:'/manager/mateManagerJson.do',
+			url:'/managerMate/mateManagerJson.do',
 			Type:'POST',
 			contentType:"application/json",
 			data:{
@@ -325,7 +325,7 @@ $(function(){
 	$('#performance-list-modal-btn').click(function(){
 		$tbody.empty();
 		$.ajax({
-			url:'/manager/mateManagerJson.do',
+			url:'/managerMate/mateManagerJson.do',
 			Type:'POST',
 			contentType:"application/json",
 			data:{
@@ -493,7 +493,7 @@ $(function(){
 	
 			$.ajax({
 				type:"POST",
-				url:"/manager/countMate.do",
+				url:"/managerMate/countMate.do",
 				dataType:"json",
 				contentType:'application/json',
 				data:JSON.stringify(data),
@@ -608,12 +608,12 @@ $(function(){
 
 		$.ajax({
 			type:"POST",
-			url:"/manager/addMate.do",
+			url:"/managerMate/addMate.do",
 			contentType:'application/json',
 			data:JSON.stringify(data),
 			success:function(result){
 				alert('등록 성공 하였습니다.');
-				location.href='/manager/mateList.do';
+				location.href='/managerMate/mateList.do';
 				console.log('succes')
 			},
 			beforeSend:function(){
@@ -646,7 +646,7 @@ $(function(){
 			var catId = Number($('#next-cat-id').val()) + 1;
 			
 			$.ajax({
-				url:"/manager/addCat.do",
+				url:"/managerMate/addCat.do",
 				type:"POST",
 				data:{
 					"category":value,

@@ -672,9 +672,8 @@
 	<script type="text/javascript" src="/resources/jquery/jquery.min.js"></script>
 	<script type="text/javascript"
 		src="/resources/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=333f1bf83c9503d02a701757427f6892&libraries=services"></script>
-	<script type="text/javascript">
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6c5c46e14c9e30d8a93ecc7d29bfaeab&libraries=services"></script>	
+<script type="text/javascript">
 $(function(){	
 	var $checkedAge = $("input[name='age']:checked");
 		
@@ -1026,7 +1025,7 @@ function showDetail(performanceId) {
 	
 	$("#myModal").modal("show");
 	// modal 창이 열리는 시점(스타일이 변경되는 시점)에서 지도 영역이 변경되었다고 알려주는 함수 호출
-	map.relayout();
+
 		
 };
 
@@ -1130,7 +1129,8 @@ function kakaoMap(id, hallInfo) {
 	
 	//지도를 생성합니다    
 	var map = new kakao.maps.Map(mapContainer, mapOption); 
-	
+	// modal 창이 열리는 시점(스타일이 변경되는 시점)에서 지도 영역이 변경되었다고 알려주는 함수 호출
+	map.relayout();	
 	//주소-좌표 변환 객체를 생성합니다
 	var geocoder = new kakao.maps.services.Geocoder();
 	
