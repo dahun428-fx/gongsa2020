@@ -1,7 +1,7 @@
 # JHTA Final-project - 공공연한사이
 
-홈페이지 링크 :  [Gongsa][link]
-[link]: http://13.124.1.149:8080/ "Go gongsa"
+홈페이지 : [gongsa][id]
+[id]: http://13.124.1.149:8080/
 
 </hr>
 
