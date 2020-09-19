@@ -6,7 +6,8 @@
 </hr>
 
 <div>
-  <img src="https://user-images.githubusercontent.com/70366042/93663675-99cab280-faa4-11ea-92cb-acdfa1648bf7.PNG" width="200">
+  <img src="https://user-images.githubusercontent.com/70366042/93663675-99cab280-faa4-11ea-92cb-acdfa1648bf7.PNG" width="400">
+  <div>홈 화면</div>
 </div>
 
 
