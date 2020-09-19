@@ -5,6 +5,11 @@
 [gongsalink]: http://13.124.1.149:8080/ "Go gongsa"
 </hr>
 
+<div>
+  <img src="https://user-images.githubusercontent.com/70366042/93663675-99cab280-faa4-11ea-92cb-acdfa1648bf7.PNG" width="200">
+</div>
+
+
 ## 프로젝트개요
 * 프로젝트 : 공연 예매와 메이트(동료) 매칭을 제공하는 웹 애플리케이션
 * 관련분야 : 공연 예매 시스템
