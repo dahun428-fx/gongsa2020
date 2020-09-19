@@ -3,6 +3,9 @@
 홈페이지 Link: [gongsa][gongsalink]
 
 [gongsalink]: http://13.124.1.149:8080/ "Go gongsa"
+
+프로젝트 기획서 pdf : <a href="https://github.com/dahun428-fx/gongsa2020/files/5249446/_2002._2.ver.1.4.pdf">프로젝트 기획서</a>
+
 </hr>
 
 <div>
