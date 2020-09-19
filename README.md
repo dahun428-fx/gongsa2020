@@ -1,8 +1,8 @@
 # final-project - 공공연한사이
 </hr>
-홈페이지 링크 :  Link: [Gongsa][link]
-
+홈페이지 링크 :  [Gongsa][link]
 [link]: http://13.124.1.149:8080/ "Go gongsa"
+
 
 ## 프로젝트개요
 * 프로젝트 : 공연 예매와 메이트(동료) 매칭을 제공하는 웹 애플리케이션
