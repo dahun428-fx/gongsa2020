@@ -7,24 +7,24 @@
 
 <div>
   
-  <div style="float">
+  <div style="float:right">
    <div>홈 화면</div>
    <img src="https://user-images.githubusercontent.com/70366042/93663675-99cab280-faa4-11ea-92cb-acdfa1648bf7.PNG" width="400">
     
   </div>
-  <div>
+  <div style="float:left">
    <div>관리자 메인 화면</div>
      <img src="https://user-images.githubusercontent.com/70366042/93663677-9afbdf80-faa4-11ea-9388-5e3d72a24a18.PNG" width="400">
   </div>
-  <div>
+  <div style="float:left">
    <div>메이트 등록 메인 화면</div>
    <img src="https://user-images.githubusercontent.com/70366042/93663678-9b947600-faa4-11ea-85c6-16b69cc0dfcb.PNG" width="400">
   </div>
-  <div>
+  <div style="float:left">
    <div>메이트 유저 화면 1 </div>
    <img src="https://user-images.githubusercontent.com/70366042/93663683-9e8f6680-faa4-11ea-8e32-85a0bc95fa6f.PNG" width="400">
   </div>
-  <div>
+  <div style="float:left">
    <div>메이트 유저 화면 2 </div>
    <img src="https://user-images.githubusercontent.com/70366042/93663684-9f27fd00-faa4-11ea-947a-790240f005b0.PNG" width="400">
   </div>
