@@ -7,15 +7,14 @@
 
 <div>
   
-  <div>
+  <div style="float">
    <div>홈 화면</div>
    <img src="https://user-images.githubusercontent.com/70366042/93663675-99cab280-faa4-11ea-92cb-acdfa1648bf7.PNG" width="400">
-    <div>관리자 메인 화면</div>
-     <img src="https://user-images.githubusercontent.com/70366042/93663677-9afbdf80-faa4-11ea-9388-5e3d72a24a18.PNG" width="400">
+    
   </div>
-  
   <div>
-   
+   <div>관리자 메인 화면</div>
+     <img src="https://user-images.githubusercontent.com/70366042/93663677-9afbdf80-faa4-11ea-9388-5e3d72a24a18.PNG" width="400">
   </div>
   <div>
    <div>메이트 등록 메인 화면</div>
