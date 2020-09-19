@@ -1,6 +1,6 @@
 # final-project - 공공연한사이
 </hr>
-### 홈페이지 링크 :  Link: [Gongsa][link]
+홈페이지 링크 :  Link: [Gongsa][link]
 
 [link]: http://13.124.1.149:8080/ "Go gongsa"
 
