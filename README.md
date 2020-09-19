@@ -15,4 +15,4 @@
 
 > 홈페이지 주소 Link: [Gongsa][googlelink]
 
-[googlelink]: http://13.124.1.149/ "gongsa"
+[googlelink]: http://13.124.1.149:8080/ "gongsa"
