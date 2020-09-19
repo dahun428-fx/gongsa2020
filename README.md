@@ -13,5 +13,6 @@
 > > 1. 다양한 API와 연계하여 공연 예매 사이트 구축.
 > > 2. 메이트 매칭 기능을 새롭게 개발하여 기존에 없었던 공연 메이트 매칭 플랫폼 개발.
 
-> 홈페이지 주소 [Gongsa] [GongsaLink]
-[GongsaLink] : http://13.124.1.149/
+> 홈페이지 주소 Link: [Google][googlelink]
+
+[googlelink]: https://google.com "Go google"
