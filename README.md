@@ -3,14 +3,14 @@
 
 
 ## 프로젝트개요
-##### 프로젝트 : 공연 예매와 메이트(동료) 매칭을 제공하는 웹 애플리케이션
-##### 관련분야 : 공연 예매 시스템
-##### 개발기간 : 2020-08-10 ~ 2020-09-14
-##### 운용체제 : Windows7
-##### DB : MariaDB
-##### 사용언어 : Java, JavaScript, HTML, CSS
-##### 사용 프레임워크 및 라이브러리 : jQuery, Bootstrap4, Spring Framework, HeidiSQL, Subversion, Git
-##### 기타 S/W : Tomcat 9.0 , AWS, Linux
+* 프로젝트 : 공연 예매와 메이트(동료) 매칭을 제공하는 웹 애플리케이션
+* 관련분야 : 공연 예매 시스템
+* 개발기간 : 2020-08-10 ~ 2020-09-14
+* 운용체제 : Windows7
+* DB : MariaDB
+* 사용언어 : Java, JavaScript, HTML, CSS
+* 사용 프레임워크 및 라이브러리 : jQuery, Bootstrap4, Spring Framework, HeidiSQL, Subversion, Git
+* 기타 S/W : Tomcat 9.0 , AWS, Linux
 
 
 #### 개발팀 이름 : (주)GONGSA
