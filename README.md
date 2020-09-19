@@ -1,8 +1,8 @@
 # JHTA Final-project - 공공연한사이
 
-Link: [Google][googlelink]
+홈페이지 Link: [gongsa][gongsalink]
 
-[googlelink]: https://google.com "Go google"
+[gongsalink]: http://13.124.1.149:8080/ "Go gongsa"
 </hr>
 
 ## 프로젝트개요
